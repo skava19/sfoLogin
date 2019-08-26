@@ -3,6 +3,7 @@ package com.skava.testSfoLogin;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
 
 import org.springframework.web.client.HttpClientErrorException;
 
@@ -23,11 +24,11 @@ public class TestSFOLogin {
  * @return
  * @throws Exception 
  */
-	public static String getSessionForUser(String identity, String password, String businessId, String storeId) throws Exception
+	public static String getSessionForUser(String identity, String password, String storeId, String apiKey) throws Exception
 	{
 		ApiClient apiClient = new ApiClient();
 		apiClient.setBasePath("https://stratus.skavacommerce.com/orchestrationservices/storefront/");
-		apiClient.addDefaultHeader("x-api-key","okmOHLVAiP8WCzDKOivPQ81kCQb6WmDQ3dqFQfcS");
+		apiClient.addDefaultHeader("x-api-key",apiKey);
 		apiClient.setDebugging(true);
         String xVersion = null;
         String locale = null;
@@ -57,11 +58,16 @@ public class TestSFOLogin {
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("Starting customer driver");
-		String password = "Skava@123";
-		String identity = "skavattesting@gmail.com";
-		String businessId = "50";
 	   	String storeId = "132";
-		String sessionId = getSessionForUser(identity,password,businessId, storeId);
+	   	Scanner scan = new Scanner(System.in);
+	   	System.out.println("Enter api key:");
+		String apiKey = scan.nextLine();
+		System.out.println("Enter user identity email:");
+		String identity = scan.nextLine();
+		System.out.println("Enter password:");
+		String password = scan.nextLine();
+		
+		String sessionId = getSessionForUser(identity,password,storeId, apiKey);
 	}
 	
 	

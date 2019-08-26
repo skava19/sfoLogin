@@ -14,17 +14,7 @@
     <jackson-version>2.9.9</jackson-version>
     <jackson-threetenbp-version>2.6.4</jackson-threetenbp-version>
 </properties>
-  <dependencies>
- <dependency>
-    <groupId>com.skava</groupId>
-    <artifactId>skava-account-sdk</artifactId>
-    <version>8.2.0-beta</version>
-</dependency>
-  <dependency>
-     <groupId>com.skava</groupId>
-     <artifactId>skava-orchestration-sdk</artifactId>
-     <version>8.2.0-beta</version>
-  </dependency> 
+  <dependencies> 
   <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
@@ -55,5 +45,10 @@
        <artifactId>jackson-datatype-threetenbp</artifactId>
        <version>${jackson-threetenbp-version}</version>
     </dependency>
+    <dependency>
+     <groupId>com.skava</groupId>
+     <artifactId>skava-orchestration-sdk</artifactId>
+     <version>8.2.0-beta</version>
+  </dependency> 
   </dependencies>
 </project>
